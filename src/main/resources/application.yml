@@ -1,0 +1,24 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql:///movie?characterEncoding=UTF-8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password:
+#  redis:
+#    host: 192.168.50.52
+#    password: abc123
+#    port: 6379
+
+mybatis-plus:
+  mapper-locations: classpath:mappers/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    type-aliases-package: com.woniuxy.oneeyeticket.model
+  logging:
+    level:
+      com.woniuxy.oneeyeticket: debug
+
+server:
+  port: 9999

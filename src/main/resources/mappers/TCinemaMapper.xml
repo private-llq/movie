@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniuxy.oneeyeticket.dao.TCinemaMapper">
+    <sql id="selCinema">
+        <if test="movieId != null">
+            and s.movie_id =#{movieId}
+        </if>
+        <if test="areaId != null">
+            and c.area_id =#{areaId}
+        </if>
+        <if test="cinemaName != null">
+            and c.cinema_name like "%${cinemaName}%"
+        </if>
+    </sql>
+<!--    动态查询全部电影院信息-->
+    <select id="queryCinema" resultType="com.woniuxy.oneeyeticket.model.TshowFrom">
+        select
+            c.cinema_id,c.cinema_name,c.telephone,c.cinema_position,h.hall_name,s.show_time,s.price,s.movie_id,m.title
+        from
+            t_cinema as c
+                join
+            t_hall as h
+            on
+                c.cinema_id = h.cinema_id
+                join
+            t_showmovie as s
+            on
+                h.hall_id = s.hall_id
+                join
+            t_movie as m
+            on
+                s.movie_id = m.movie_id
+            <where>
+                <include refid="selCinema"></include>
+            </where>
+            group by
+                c.cinema_name
+    </select>
+
+    <sql id="selCinemaById">
+        <if test="cinemaId != null">
+            and c.cinema_id=#{cinemaId}
+        </if>
+        <if test="movieId != null">
+            and s.movie_id =#{movieId}
+        </if>
+    </sql>
+    <!--    根据id查询电影院-->
+    <select id="queryCinemaById" resultType="com.woniuxy.oneeyeticket.model.TshowFrom">
+        select
+            c.cinema_id,c.cinema_name,c.telephone,c.cinema_position,h.hall_name,s.show_time,s.price,s.movie_id,m.title,h.hall_id
+        from
+            t_cinema as c
+        join
+            t_hall as h
+        on
+            c.cinema_id = h.cinema_id
+        join
+            t_showmovie as s
+        on
+            h.hall_id = s.hall_id
+        join
+            t_movie as m
+        on
+            s.movie_id = m.movie_id
+        <where>
+            <include refid="selCinemaById"></include>
+        </where>
+
+    </select>
+</mapper>
