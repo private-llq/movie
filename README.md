@@ -7,13 +7,16 @@ Forked from https:https://gitee.com/private-llq/movie.git
 
 # 程序运行环境说明
 
+## 架构
+mvc架构  前后端没分离
+
 ## 运行环境
 
-java 8
-vue 2.6.12
-vue_cli 2.0
-maven 3.6.3
-nodeJS 12
+- java 8
+- vue 2.6.12
+- vue_cli 2.0
+- maven 3.6.3
+- nodeJS 12
 
 ## 后端配置
 
