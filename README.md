@@ -4,6 +4,7 @@ Forked from https:https://gitee.com/private-llq/movie.git
 #### 介绍
 
 基于SpringBoot + Vue 的电影售票系统和影院后台管理系统
+补充说明：主体流程走完的，但是具体的一些细节还有点bug可以优化，不在更新，等我工作不忙了或者有兴趣了在来重构系统
 
 # 程序运行环境说明
 
