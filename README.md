@@ -1,4 +1,4 @@
-#电影的票务，选座系统
+# 电影的票务，选座系统
 Forked from https:https://gitee.com/private-llq/movie.git
 
 #### 介绍
